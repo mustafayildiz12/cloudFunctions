@@ -29,8 +29,8 @@ exports.searchentry = functions.database.ref('users/{UserId}/username').onCreate
     });
 
 
-    /*
-    exports.indexentry = functions.database.ref('/blog-posts/{blogid}/text').onWrite(
+    
+    exports.indexentry = functions.database.ref('contacts').onWrite(
     async (data, context) => {
       const index = client.initIndex(ALGOLIA_POSTS_INDEX_NAME);
       const firebaseObject = {
@@ -39,6 +39,7 @@ exports.searchentry = functions.database.ref('users/{UserId}/username').onCreate
       };
 
       await index.saveObject(firebaseObject);
-      return data.after.ref.parent.child('last_index_timestamp').set(Date.parse(context.timestamp));
+      return data.after.ref.parent.child('last_index_timestamp').
+      set(Date.parse(context.timestamp));
     });
-    */
+    
